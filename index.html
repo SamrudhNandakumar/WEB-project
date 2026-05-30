@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FlashAI – AI Study Flashcard Generator</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-pill">
+      <div class="logo-dot"></div>
+      AI-Powered
+    </div>
+    <h1>FlashAI</h1>
+    <p class="subtitle">Paste any topic or notes — get instant study flashcards</p>
+  </header>
+
+  <!-- INPUT PANEL -->
+  <div class="input-panel" id="input-panel">
+    <div class="panel-label">Your topic or notes</div>
+    <textarea id="topic-input" placeholder="e.g. 'Explain the OSI model' or paste your notes on recursion, IoT protocols, FLAT theory..."></textarea>
+    <div class="options-row">
+      <div class="count-selector">
+        <span>Generate</span>
+        <select id="card-count">
+          <option value="5">5 cards</option>
+          <option value="8" selected>8 cards</option>
+          <option value="10">10 cards</option>
+          <option value="12">12 cards</option>
+        </select>
+      </div>
+      <!-- BUG 3 FIX: Removed inline onclick="generateCards()" — handler is now
+           registered exclusively in script.js DOMContentLoaded to avoid duplicate calls -->
+      <button class="btn-generate" id="gen-btn">
+        ✦ Generate Flashcards
+      </button>
+    </div>
+  </div>
+
+  <!-- ERROR BOX -->
+  <div id="error-box"></div>
+
+  <!-- LOADING -->
+  <div id="loading">
+    <div class="spinner"></div>
+    <span id="loading-text">Generating your flashcards…</span>
+  </div>
+
+  <!-- FLASHCARD SECTION -->
+  <div id="flashcard-section">
+
+    <div class="summary-badge">
+      <span>✦</span>
+      <span><b id="total-count">8</b> flashcards generated · click card to flip</span>
+    </div>
+
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="progress-fill" style="width: 0%"></div>
+    </div>
+
+    <div class="card-counter">
+      Card <span id="cur">1</span> of <span id="tot">8</span>
+    </div>
+
+    <!-- THE FLIP CARD -->
+    <!-- BUG 3 FIX: Removed inline onclick="flipCard()" -->
+    <div class="card-scene">
+      <div class="card-3d" id="card-3d">
+        <div class="card-face card-front">
+          <div class="card-tag tag-q">Question</div>
+          <p class="card-text" id="q-text"></p>
+          <span class="card-hint">click to reveal answer</span>
+        </div>
+        <div class="card-face card-back">
+          <div class="card-tag tag-a">Answer</div>
+          <p class="card-text" id="a-text"></p>
+          <span class="card-hint">click to see question</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <!-- BUG 3 FIX: Removed inline onclick from prev-btn, btn-flip, next-btn -->
+    <div class="nav-row">
+      <button class="btn-nav" id="prev-btn" title="Previous">&#8592;</button>
+      <button class="btn-flip">&#8635; Flip Card</button>
+      <button class="btn-nav" id="next-btn" title="Next">&#8594;</button>
+    </div>
+
+    <!-- DOTS -->
+    <div class="dots-row" id="dots-row"></div>
+
+    <!-- BUG 3 FIX: Removed inline onclick from reset button -->
+    <button class="btn-reset">&#8592; New Topic</button>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
