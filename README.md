@@ -1,10 +1,10 @@
 # WEB Project
 An AI which generates flashcards based on the information given.
 
-##Features
+## Features
 -Organized folders in a structured way for HTML, CSS, JS
 
-##How to run
+## How to run
 1. Clone the repo
-2. '''bash
+2. ```bash
 3. git clone https://github.com/SamrudhNandakumar/WEB-project.git
