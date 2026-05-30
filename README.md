@@ -2,7 +2,7 @@
 An AI which generates flashcards based on the information given.
 
 ## Features
--Organized folders in a structured way for HTML, CSS, JS
+- Organized folders in a structured way for HTML, CSS, JS
 
 ## How to run
 1. Clone the repo:
